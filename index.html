@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: #ffd6e8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        position: relative;
+    }
+
+    /* SUPER SNEAKY YES ON PINK */
+    #yes {
+        position: fixed;
+        top: 6px;
+        left: 8px;
+        padding: 2px 6px;
+        font-size: 9px;
+        background: #ffd6e8;
+        color: #ff9eb5;
+        border: 1px solid #ffd6e8;
+        opacity: 0.35;
+        cursor: pointer;
+    }
+
+    #yes:hover {
+        opacity: 1;
+    }
+
+    .box {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+        width: 320px;
+        position: relative;
+    }
+
+    h2 {
+        margin-bottom: 40px;
+    }
+
+    button {
+        border: none;
+        border-radius: 6px;
+    }
+
+    /* NO button */
+    #no {
+        background: #ccc;
+        padding: 10px 25px;
+        font-size: 16px;
+        position: absolute;
+        left: 120px;
+        bottom: 30px;
+        cursor: pointer;
+    }
+
+    /* Yay screen */
+    .yay {
+        display: none;
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+        width: 320px;
+    }
+
+    /* Heart */
+    .heart {
+        width: 120px;
+        height: 120px;
+        background: #ff4d88;
+        position: relative;
+        margin: 0 auto;
+        transform: rotate(-45deg);
+        animation: pump 1s infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: "";
+        width: 120px;
+        height: 120px;
+        background: #ff4d88;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .heart::before {
+        top: -60px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: 60px;
+        top: 0;
+    }
+
+    .heart-text {
+        transform: rotate(45deg);
+        color: white;
+        font-size: 26px;
+        font-weight: bold;
+        z-index: 2;
+    }
+
+    @keyframes pump {
+        0% { transform: rotate(-45deg) scale(1); }
+        50% { transform: rotate(-45deg) scale(1.15); }
+        100% { transform: rotate(-45deg) scale(1); }
+    }
+
+    .bottom-text {
+        margin-top: 30px;
+        font-size: 14px;
+        color: gray;
+    }
+</style>
+</head>
+
+<body>
+
+<button id="yes" onclick="showYay()">Yes</button>
+
+<div class="box" id="mainBox">
+    <h2>Will you be my Valentine? 💕</h2>
+    <button id="no">No</button>
+</div>
+
+<div class="yay" id="yayBox">
+    <div class="heart">
+        <div class="heart-text">Yay</div>
+    </div>
+    <div class="bottom-text">Where is my wired earphone ?</div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * 220;
+        const y = Math.random() * 140;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    function showYay() {
+        document.getElementById("mainBox").style.display = "none";
+        document.getElementById("yayBox").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
